@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/css/img/undraw_shopping_a55o.svg" alt="">
+        </div>
+        <div class="form">
+            <form id="myForm" action="#">
+                <div class="form-header">
+                    <div class="tittle">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                    <div class="login-button">
+                        <button><a href="#">Entrar</a></button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname"><span class="mandatory-asterisk">*</span>Primeiro nome</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Digite seu primeiro nome">
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="lastname"><span class="mandatory-asterisk">*</span>Sobrenome</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Digite seu Sobrenome nome">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email"><span class="mandatory-asterisk">*</span>Email</label>
+                        <input type="email" id="emailmain" name="email" placeholder="Digite seu email">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="number"><span class="mandatory-asterisk">*</span>Celular</label>
+                        <input type="tel" id="number" name="number" placeholder="(xx) xxxxx-xxxx">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="password"><span class="mandatory-asterisk">*</span>Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha">
+                    </div>
+
+                    <div class="input-box">
+                        <label for="Confirmpassword"><span class="mandatory-asterisk">*</span>Confirme sua senha</label>
+                        <input type="Confirmpassword" id="confirmpassword" name="Confirmpassword" placeholder="Digite sua senha novamente">
+                    </div>
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-tittle">
+                        <h6><span class="mandatory-asterisk">*</span>Gênero</h6>
+                    </div>
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input type="radio" id="female" name="gender">
+                            <label for="female">Feminino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input type="radio" id="male" name="gender">
+                            <label for="male">Masculino</label>
+                        </div>
+                        
+                        <div class="gender-input">
+                            <input type="radio" id="others" name="gender">
+                            <label for="others">Outros</label>
+                        </div>
+                        
+                        <div class="gender-input">
+                            <input type="radio" id="none" name="gender">
+                            <label for="none">Prefiro não dizer</label>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="required-field">
+                    <p><span class="mandatory-asterisk">*</span>Campos obrigatórios precisam ser preenchidos</p>
+                </div>
+
+                <div class="continue-button">
+                    <button><a href="#">Continuar</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        //Captura o envio do formulário
+        document.getElementById("myForm").addEventListener("submit", function(event) { 
+            
+
+            event.preventDefault(); // Impede o envio automático da página
+
+            // Coleta os dados digitados
+
+            const firstname = document.getElementById("firstname").value.trim();
+            const lastname = document.getElementById("lastname").value.trim();
+            const email = document.getElementById("emailmain").value.trim();
+            const number = document.getElementById("number").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmpassword").value.trim();
+            const gender = document.querySelector('input[name=gender]:checked')
+
+            //Expressões regulares(regex)
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/;
+
+            // valida o número do celular
+
+            if (!firstname || !lastname || !email || !number || !password || !confirmPassword) {
+                alert("Preencha todos os campos obrigatórios.")
+                return;
+            }
+
+            // Valida se o email é valido
+
+            if (!emailRegex.test(email)) {
+                alert("Por favor coloque um email válido.");
+                return;
+            }
+
+            // Valida se o número do telefone é valido
+
+            if (!phoneRegex.test(number)) {
+                alert("Por favor coloque um número de celular válido. Ex: (XX) XXXXX-XXXX.");
+                return;
+            }
+
+            // Valida se as senhas coincidem
+
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+
+            // Valida se foi marcado um genêro
+
+            if (!gender) {
+                alert("Por favor, selecione um gênero.")
+                return;
+            }
+
+            alert("Formulário enviado com sucesso!!")
+
+        })
+
+    </script>
+</body>
+</html>

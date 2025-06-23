@@ -1,0 +1,71 @@
+body {
+    background: linear-gradient(to left, #D2E8E3, #6c8b8b);
+    width: 100%;
+    margin: 0px;
+}
+
+header {
+    background: #2C3532;
+    padding: 1px 30px;
+    margin-bottom: 10px;
+    margin: -10px -5px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.253);
+    border-radius: 2px;
+}
+
+header > div > p {
+    font-size: 30px;
+    text-align: right;
+    color: lightblue;
+}
+
+button {
+        text-decoration: none;
+}
+
+button:active {
+    text-decoration: underline;
+    background-color: #D2E8E3;
+}
+
+#botaosuperior {
+    background: #e0dede;
+    padding: 10px 10px;
+    margin-bottom: 1px;
+    /*align-items: right;*/ /*Não move para a direita*/
+    /*text-align: right;*/ /*Não move para a direita*/
+    font: bold 1rem Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+}
+
+main {
+    background-color: #D8B08C;
+    border-radius: 10px;
+    border: 5px solid rgba(0, 0, 0, 0.144);
+    padding: 10px;
+    margin: 70px 40px;
+}
+
+main > h1 {
+    background: #FFCB9A;
+    padding: 1rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main > p {
+    padding: 5px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+main > article {
+    background: #2C3532;
+    padding: 10px 20px;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+main > article > h3 {
+    color: rgb(255, 255, 255);
+}

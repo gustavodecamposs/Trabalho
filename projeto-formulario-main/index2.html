@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-image">
+            <img src="assets/css/img/undraw_shopping_a55o.svg" alt="">
+        </div>
+        <div class="form">
+            <form id="cadastroForm" action="#">
+                <div class="form-header">
+                    <div class="tittle">
+                        <h1>Cadastre-se</h1>
+                    </div>
+                    <div class="login-button">
+                        <button type="button"><a href="#">Entrar</a></button>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="firstname"><span class="mandatory-asterisk">*</span>Primeiro nome</label>
+                        <input type="text" id="firstname" name="firstname" placeholder="Digite seu primeiro nome" >
+                    </div>
+                    
+                    <div class="input-box">
+                        <label for="lastname"><span class="mandatory-asterisk">*</span>Sobrenome</label>
+                        <input type="text" id="lastname" name="lastname" placeholder="Digite seu Sobrenome" >
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email"><span class="mandatory-asterisk">*</span>Email</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu email" >
+                    </div>
+
+                    <div class="input-box">
+                        <label for="number"><span class="mandatory-asterisk">*</span>Celular</label>
+                        <input type="tel" id="number" name="number" placeholder="(xx) xxxxx-xxxx" >
+                    </div>
+
+                    <div class="input-box">
+                        <label for="password"><span class="mandatory-asterisk">*</span>Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" >
+                    </div>
+
+                    <div class="input-box">
+                        <label for="confirmpassword"><span class="mandatory-asterisk">*</span>Confirme sua senha</label>
+                        <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Digite sua senha novamente" >
+                    </div>
+                </div>
+
+                <div class="gender-inputs">
+                    <div class="gender-tittle">
+                        <h6><span class="mandatory-asterisk">*</span>Gênero</h6>
+                    </div>
+                    <div class="gender-group">
+                        <div class="gender-input">
+                            <input type="radio" id="female" name="gender">
+                            <label for="female"><span></span> Feminino</label>
+                        </div>
+
+                        <div class="gender-input">
+                            <input type="radio" id="male" name="gender">
+                            <label for="male"><span></span> Masculino</label>
+                        </div>
+                        
+                        <div class="gender-input">
+                            <input type="radio" id="others" name="gender">
+                            <label for="others"><span></span> Outros</label>
+                        </div>
+                        
+                        <div class="gender-input">
+                            <input type="radio" id="none" name="gender">
+                            <label for="none"><span></span> Prefiro não dizer</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="required-field">
+                    <p><span class="mandatory-asterisk">*</span>Campos obrigatórios precisam ser preenchidos</p>
+                </div>
+
+                <div class="continue-button">
+                    <button type="submit">Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede envio automático do form
+
+            const firstname = document.getElementById("firstname").value.trim();
+            const lastname = document.getElementById("lastname").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const number = document.getElementById("number").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmpassword").value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const phoneRegex = /^\(\d{2}\)\s?\d{4,5}-\d{4}$/;
+
+            if (!firstname || !lastname || !email || !number || !password || !confirmPassword) {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                alert("Por favor, insira um email válido.");
+                return;
+            }
+
+            if (!phoneRegex.test(number)) {
+                alert("Por favor, insira um número de celular válido. Ex: (99) 99999-9999");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+
+            if (!gender) {
+                alert("Por favor, selecione um gênero.");
+                return;
+            }
+
+            alert("Formulário enviado com sucesso!");
+            // Se quiser realmente enviar, use: this.submit();
+        });
+    </script>
+</body>
+</html>
