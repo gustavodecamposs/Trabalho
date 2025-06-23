@@ -13,7 +13,7 @@
 
         var limite_horas_mensais = 160;
 
-        var valor_horas_extras = /*limite_horas_mensais*/ + 37.50;
+        var valor_horas_extras = valor_horas_normal * 1.5;
         
         var nome = prompt('Digite o nome do Funcionário: ')
         var horasTrabalhadas = parseFloat(prompt("Digite o total de horais mensais trabalhados: "))
@@ -27,14 +27,14 @@
         }
 
         var valorHorasNormal = horasNormais * valor_horas_normal;
-        var valorHorasExtras = horasExtras + valor_horas_extras;
+        var valorHorasExtras = horasExtras * valor_horas_extras;
         var salarioTotal = valorHorasNormal + valorHorasExtras;
 
         console.log("Funcionário: " + nome);
         console.log("Horas trabalhadas: " + horasTrabalhadas)
-        console.log("Valor horas normais: " + valorHorasNormal)
-        console.log("Valor horas extras: " + valorHorasExtras)
-        console.log("Salário total " + salarioTotal)
+        console.log("Valor horas normais: R$" + valorHorasNormal)
+        console.log("Valor horas extras: R$" + valorHorasExtras)
+        console.log("Salário total: R$" + salarioTotal)
     </script>
 </body>
 </html>
