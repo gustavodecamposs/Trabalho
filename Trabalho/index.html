@@ -8,27 +8,33 @@
 <body>
     
     <script>
-        
+        // Dados
         var valor_horas_normal = 25.00;
-
         var limite_horas_mensais = 160;
-
         var valor_horas_extras = valor_horas_normal * 1.5;
         
+        // Dados inseridos pelo cliente
+
         var nome = prompt('Digite o nome do Funcionário: ')
         var horasTrabalhadas = parseFloat(prompt("Digite o total de horais mensais trabalhados: "))
 
         var horasNormais = horasTrabalhadas;
         var horasExtras = 0;
 
+        //Condição
+
         if (horasTrabalhadas > limite_horas_mensais) {
             horasNormais = limite_horas_mensais;
             horasExtras = horasTrabalhadas - limite_horas_mensais;
         }
 
+        //Cálculo dos valores
+
         var valorHorasNormal = horasNormais * valor_horas_normal;
         var valorHorasExtras = horasExtras * valor_horas_extras;
         var salarioTotal = valorHorasNormal + valorHorasExtras;
+
+        //Amostragem para o console
 
         console.log("Funcionário: " + nome);
         console.log("Horas trabalhadas: " + horasTrabalhadas)
