@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variaveis dentro de função</title>
+</head>
+<body>
+    
+
+    <script>
+
+// Entre uma variável de escopo global e uma de escopo local, a variavel de
+// escopo local sempre terá a preferência
+
+        let count = 0;
+
+        function add() {
+            let count = 0;
+            count++;
+        }
+
+        add();
+        add();
+
+
+        console.log(count);
+
+    </script>
+</body>
+</html>
