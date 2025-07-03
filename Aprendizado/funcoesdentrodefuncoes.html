@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções dentro de funções</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function addSquares(a, b) {
+            const square = (x) => x * x; 
+            
+
+            let sqrA = square(a);
+            let sqrB = square(b);
+            return  sqrA + sqrB;
+        }
+
+        console.log(addSquares(2, 3));
+
+    </script>
+</body>
+</html>
